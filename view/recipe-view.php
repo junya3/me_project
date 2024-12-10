@@ -3,27 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ユーザー登録</title>
+    <title><?= htmlspecialchars($recipe['title']) ?></title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <h1>ユーザー登録</h1>
-
-    <form action="register.php" method="POST">
-        <label for="username">ユーザー名:</label>
-        <input type="text" id="username" name="username" required><br>
-
-        <label for="email">メールアドレス:</label>
-        <input type="email" id="email" name="email" required><br>
-
-        <label for="password">パスワード:</label>
-        <input type="password" id="password" name="password" required><br>
-
-        <button type="submit">登録</button>
-    </form>
-
-    <p><a href="login.php">ログイン画面へ戻る</a></p>
+    <h1><?= htmlspecialchars($recipe['title']) ?></h1>
+    <p>材料: <?= htmlspecialchars($recipe['ingredients']) ?></p>
+    <p>手順: <?= htmlspecialchars($recipe['instructions']) ?></p>
+    <p><a href="index.php">戻る</a></p>
 </body>
 
 </html>
