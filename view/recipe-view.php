@@ -11,6 +11,16 @@
     <h1><?= htmlspecialchars($recipe['title']) ?></h1>
     <p>材料: <?= htmlspecialchars($recipe['ingredients']) ?></p>
     <p>手順: <?= htmlspecialchars($recipe['instructions']) ?></p>
+
+    <!-- 編集ボタン -->
+    <a href="edit_recipe.php?id=<?= $recipe['id'] ?>">編集</a>
+    <!-- 削除ボタン -->
+    <form action="delete_recipe.php" method="POST">
+        <input type="hidden" name="id" value="<?= $recipe['id'] ?>">
+        <button type="submit" name="delete">削除</button>
+    </form>
+
+
     <p><a href="index.php">戻る</a></p>
 </body>
 
