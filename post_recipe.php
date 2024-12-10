@@ -1,6 +1,12 @@
 <?php
-session_start();
-require 'db.php';
+include_once dirname(__FILE__) . '/model/functions.php';
+
+// データの取得
+$sql = 'SELECT * FROM recipes';
+$recipes = getData($dbname, $user, $password, $sql);
+
+// デフォルト値を設定
+$recipes = $recipes ?? [];
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -20,26 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: index.php");
     exit();
 }
-?>
 
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <title>レシピ投稿</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <h1>レシピ投稿</h1>
-    <form method="post">
-        <label>タイトル: <input type="text" name="title" required></label><br>
-        <label>材料: <textarea name="ingredients" required></textarea></label><br>
-        <label>手順: <textarea name="instructions" required></textarea></label><br>
-        <input type="submit" value="投稿">
-    </form>
-    <p><a href="index.php">レシピ一覧に戻る</a></p>
-</body>
-
-</html>
+// Viewの読み込み
+include_once dirname(__FILE__) . '/view/post_recipe-view.php';

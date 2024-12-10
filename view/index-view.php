@@ -9,7 +9,9 @@
 
 <body>
     <h1>レシピ一覧</h1>
-    <p><a href="login.php">ログイン</a> | <a href="register.php">ユーザー登録</a></p>
+    <p><a href="login.php">ログイン</a> | <a href="register.php">ユーザー登録</a> | <a href="logout.php">ログアウト</a>
+    </p>
+
     <ul>
         <?php foreach ($recipes as $recipe): ?>
             <li>

@@ -1,42 +1,36 @@
 <?php
-session_start();
-require 'db.php';
+include_once dirname(__FILE__) . '/model/functions.php';
 
+// データベース接続
+$dbh = new PDO($dbname, $user, $password);
+
+// データの取得
+$sql = 'SELECT * FROM recipes';
+$recipes = getData($dbname, $user, $password, $sql);
+
+// デフォルト値を設定
+$recipes = $recipes ?? [];
+
+// Viewの読み込み
+include_once dirname(__FILE__) . '/view/login-view.php';
+
+// POSTリクエストがあった場合、ログイン処理を行う
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+    // ユーザー情報をデータベースから取得
+    $stmt = $dbh->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->execute([$username]);
     $user = $stmt->fetch();
 
+    // パスワード照合
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
-        header("Location: post_recipe.php");
+        $_SESSION['username'] = $user['username']; // セッションにユーザー名を保存
+        header("Location: index.php");
         exit();
     } else {
         echo "Invalid credentials!";
     }
 }
-?>
-
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <title>ログイン</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <h1>ログイン</h1>
-    <form method="post">
-        <label>ユーザー名: <input type="text" name="username" required></label><br>
-        <label>パスワード: <input type="password" name="password" required></label><br>
-        <input type="submit" value="ログイン">
-    </form>
-    <p><a href="register.php">ユーザー登録</a></p>
-</body>
-
-</html>
