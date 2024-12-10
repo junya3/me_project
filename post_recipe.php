@@ -1,6 +1,4 @@
 <?php
-ini_set('display_errors', '1');
-
 // functions.phpをインクルード
 include_once dirname(__FILE__) . '/model/functions.php';
 
