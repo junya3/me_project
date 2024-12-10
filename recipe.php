@@ -7,14 +7,13 @@ $user = 'root';
 $password = '';
 
 // DB接続
-$pdo = connectDb($dbname, $user, $password);
+$pdo = new PDO($dbname, $user, $password);
 
 // IDを取得
 $id = $_GET['id'];
-
-// レシピのデータを取得
+// レシピデータの取得
 $stmt = $pdo->prepare("SELECT * FROM recipes WHERE id = ?");
-$stmt->execute([$id]);
+$stmt->execute([$_GET['id']]);
 $recipe = $stmt->fetch();
 
 // レシピが存在しない場合
