@@ -13,7 +13,10 @@
     <p>手順: <?= htmlspecialchars($recipe['instructions']) ?></p>
 
     <!-- 編集ボタン -->
-    <a href="edit_recipe.php?id=<?= $recipe['id'] ?>">編集</a>
+    <?php if ($recipe['user_id'] === $_SESSION['user_id']): ?>
+        <a href="edit_recipe.php?id=<?= $recipe['id'] ?>">編集</a>
+    <?php endif; ?>
+
     <!-- 削除ボタン -->
     <form action="delete_recipe.php" method="POST">
         <input type="hidden" name="id" value="<?= $recipe['id'] ?>">
