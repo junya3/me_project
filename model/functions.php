@@ -3,9 +3,11 @@ ini_set('display_errors', '1');
 
 // DB接続情報
 $dbname = 'mysql:dbname=recipe_share;host=localhost;charset=utf8;';
+// データベース接続
 $user = 'root';
 $password = '';
-
+$dbh = new PDO($dbname, $user, $password);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 // セッション開始
 session_start();
 
