@@ -33,12 +33,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ingredients = $_POST['ingredients'];
     $instructions = $_POST['instructions'];
 
-    // 画像アップロード処理（未実装の場合は空文字を指定）
-    $image = ''; // 画像処理を後で実装
+    // 画像処理
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        $image_name = basename($_FILES['image']['name']);
+        $image_path =  $image_name;
+        move_uploaded_file($_FILES['image']['tmp_name'], 'uploads/' .  $image_path);
+    } else {
+        $image_path = ''; // 画像がアップロードされていない場合は空
+    }
 
     // データベースにレシピを挿入
     $sql_insert = "INSERT INTO recipes (user_id, title, ingredients, instructions, image) VALUES (?, ?, ?, ?, ?)";
-    $params = [$user_id, $title, $ingredients, $instructions, $image];
+    $params = [$user_id, $title, $ingredients, $instructions, $image_path];
 
     setData($dbname, $user, $password, $sql_insert, $params);
 
