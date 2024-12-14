@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $image_path = $image_name;
 
             if (move_uploaded_file($file_tmp, 'uploads/' .  $image_path)) {
-                // 古い画像を削除（必要なら）
+                // 古い画像を削除
                 if (!empty($recipe['image']) && file_exists($recipe['image'])) {
                     unlink($recipe['image']);
                 }
