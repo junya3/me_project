@@ -36,7 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 画像処理
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $image_name = basename($_FILES['image']['name']);
+        // 実際に踏むリンクを設定
         $image_path =  $image_name;
+        // このファイルからアップロードするパスを設定
         move_uploaded_file($_FILES['image']['tmp_name'], 'uploads/' .  $image_path);
     } else {
         $image_path = ''; // 画像がアップロードされていない場合は空
