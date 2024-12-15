@@ -29,28 +29,6 @@
                 <?php else: ?>
                     <p>画像はありません。</p>
                 <?php endif; ?>
-
-                <!-- デバッグ情報の出力 -->
-                <!-- <pre>
-                    <?php
-                    echo "デバッグ情報:\n";
-                    echo "recipe['image']: ";
-                    var_dump($recipe['image']);
-                    echo "file_path: ";
-                    var_dump($file_path);
-                    echo "file_exists: ";
-                    var_dump(file_exists($file_path));
-                    echo "ディレクトリ確認 (__DIR__): ";
-                    var_dump(__DIR__);
-                    echo "アップロードディレクトリの中身:\n";
-                    $uploads_dir = __DIR__ . '/uploads/';
-                    if (is_dir($uploads_dir)) {
-                        var_dump(scandir($uploads_dir));
-                    } else {
-                        echo "uploads ディレクトリが存在しません。\n";
-                    }
-                    ?>
-        </pre> -->
             </li>
         <?php endforeach; ?>
 
