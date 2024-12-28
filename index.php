@@ -5,6 +5,9 @@ include_once dirname(__FILE__) . '/model/functions.php';
 $sql = 'SELECT * FROM recipes';
 $recipes = getData($dbname, $user, $password, $sql);
 
+$userId = $_SESSION['user_id'];
+$userName = $_SESSION['username'];
+
 // デフォルト値を設定
 $recipes = $recipes ?? [];
 

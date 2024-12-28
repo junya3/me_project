@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-<head>
-    <meta charset="UTF-8">
-    <title>ユーザー登録</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<?php
+$pageTitle = 'ユーザー登録';
+include_once __DIR__ . '../../components/head.php'; ?>
 
 <body>
     <h1>ユーザー登録</h1>

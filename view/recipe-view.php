@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-<head>
-    <meta charset="UTF-8">
-    <title><?= htmlspecialchars($recipe['title']) ?></title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<?php
+$pageTitle = htmlspecialchars($recipe['title']);
+include_once __DIR__ . '../../components/head.php'; ?>
 
 <body>
     <h1><?= htmlspecialchars($recipe['title']) ?></h1>
