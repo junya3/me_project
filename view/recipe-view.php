@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <?php
-$pageTitle = htmlspecialchars($recipe['title']);
+$pageTitle = htmlspecialchars($recipe['title']) . 'のレシピ';
 include_once __DIR__ . '../../components/head.php'; ?>
 
 <body>
