@@ -20,6 +20,12 @@ include_once __DIR__ . '../../components/head.php';
 
     <ul class="recipe-items">
         <?php foreach ($recipes as $recipe): ?>
+            <?php
+            // 画像が設定されていない場合に対応するため、初期値を設定
+            $file_path = !empty($recipe['image'])
+                ? __DIR__ . '/../uploads/' . htmlspecialchars($recipe['image'])
+                : '';
+            ?>
             <li>
                 <a class="recipe-item" href="recipe.php?id=<?= $recipe['id'] ?>">
                     <!-- 画像の有無を確認 -->
@@ -32,19 +38,10 @@ include_once __DIR__ . '../../components/head.php';
                     <p><?= htmlspecialchars($recipe['ingredients']) ?></p>
                     <p><?= htmlspecialchars($recipe['instructions']) ?></p>
                 </a>
-
-                <?php
-                // ファイルパスの生成
-                $file_path = __DIR__ . '/../uploads/' . htmlspecialchars($recipe['image']);
-                ?>
-
-
             </li>
         <?php endforeach; ?>
-
-
-
     </ul>
+
     <p><a href="post_recipe.php">レシピを投稿</a></p>
 </body>
 
