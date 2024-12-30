@@ -11,28 +11,34 @@ include_once __DIR__ . '../../components/head.php';
     <p><a href="login.php">ログイン</a> | <a href="register.php">ユーザー登録</a> | <a href="logout.php">ログアウト</a></p>
 
     <?php
-    echo $userId;
-    echo $userName;
+    if ($userId) {
+        echo "ログイン中のユーザー: " . htmlspecialchars($userName);
+    } else {
+        echo 'ゲストさんようこそ';
+    }
     ?>
 
-    <ul>
+    <ul class="recipe-items">
         <?php foreach ($recipes as $recipe): ?>
             <li>
-                <a href="recipe.php?id=<?= $recipe['id'] ?>"><?= htmlspecialchars($recipe['title']) ?></a>
-                <p><?= htmlspecialchars($recipe['ingredients']) ?></p>
-                <p><?= htmlspecialchars($recipe['instructions']) ?></p>
+                <a class="recipe-item" href="recipe.php?id=<?= $recipe['id'] ?>">
+                    <!-- 画像の有無を確認 -->
+                    <?php if (!empty($recipe['image']) && file_exists($file_path)): ?>
+                        <img src="uploads/<?= htmlspecialchars($recipe['image']) ?>" alt="レシピ画像">
+                    <?php else: ?>
+                        <img src="assets/images/dummyIcon.png" alt="レシピ画像">
+                    <?php endif; ?>
+                    <h3><?= htmlspecialchars($recipe['title']) ?></h3>
+                    <p><?= htmlspecialchars($recipe['ingredients']) ?></p>
+                    <p><?= htmlspecialchars($recipe['instructions']) ?></p>
+                </a>
 
                 <?php
                 // ファイルパスの生成
                 $file_path = __DIR__ . '/../uploads/' . htmlspecialchars($recipe['image']);
                 ?>
 
-                <!-- 画像の有無を確認 -->
-                <?php if (!empty($recipe['image']) && file_exists($file_path)): ?>
-                    <img src="uploads/<?= htmlspecialchars($recipe['image']) ?>" alt="レシピ画像" style="max-width: 200px; height: auto;">
-                <?php else: ?>
-                    <p>画像はありません。</p>
-                <?php endif; ?>
+
             </li>
         <?php endforeach; ?>
 

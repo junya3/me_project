@@ -47,3 +47,17 @@ input[type='submit'] {
 input[type='submit']:hover {
   background-color: #45a049;
 }
+
+.recipe-items{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:1rem;
+}
+.recipe-item{
+  width: 100%;
+  img{
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+  }
+}
