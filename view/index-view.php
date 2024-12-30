@@ -26,7 +26,7 @@ include_once __DIR__ . '../../components/head.php';
                     <?php if (!empty($recipe['image']) && file_exists($file_path)): ?>
                         <img src="uploads/<?= htmlspecialchars($recipe['image']) ?>" alt="レシピ画像">
                     <?php else: ?>
-                        <img src="assets/images/dummyIcon.png" alt="レシピ画像">
+                        <div class="no-image"></div>
                     <?php endif; ?>
                     <h3><?= htmlspecialchars($recipe['title']) ?></h3>
                     <p><?= htmlspecialchars($recipe['ingredients']) ?></p>
