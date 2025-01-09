@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  padding-inline: 20px;
 }
 
 h1 {
@@ -16,12 +16,6 @@ ul {
   padding: 0;
 }
 
-li {
-  margin: 20px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
 a{
   color: #000;
   text-decoration: none;
@@ -32,6 +26,54 @@ a{
 
 form {
   margin-bottom: 20px;
+}
+
+/* header */
+
+header{
+  width: 100%;
+  height: auto;
+  padding-block:1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom:1px solid color-mix(in srgb, #000 20%, transparent);
+
+  position: sticky;
+  top: 0;
+  b{
+    font-weight: bold;
+  }
+  h1{
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .h_user{
+    p{
+      border-radius: .5rem;
+      padding:.5rem 1rem;
+      border:1px solid color-mix(in srgb, #000 20%, transparent);
+    }
+  }
+  nav{
+    display: flex;
+    gap: 1rem;
+  }
+  ul{
+    display: flex;
+    width:fit-content;
+    align-items: center;
+    gap: .5rem;
+    padding: 0;
+    margin: 0;
+    li{
+      list-style-type: none;
+      border-radius: .5rem;
+      padding:.5rem 1rem;
+      border:1px solid color-mix(in srgb, #000 20%, transparent);
+    }
+  }
 }
 
 input[type='text'],
@@ -58,7 +100,7 @@ input[type='submit']:hover {
 
 .recipe-items{
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap:1rem;
 }
 .recipe-item{
@@ -75,5 +117,10 @@ input[type='submit']:hover {
     background-position:center;
     background-repeat: no-repeat;
     background-color: #efefef;
+  }
+  li {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
   }
 }

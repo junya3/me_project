@@ -7,16 +7,7 @@ include_once __DIR__ . '../../components/head.php';
 ?>
 
 <body>
-    <h1>レシピ一覧</h1>
-    <p><a href="login.php">ログイン</a> | <a href="register.php">ユーザー登録</a> | <a href="logout.php">ログアウト</a></p>
-
-    <?php
-    if ($userId) {
-        echo "ログイン中のユーザー: " . htmlspecialchars($userName);
-    } else {
-        echo 'ゲストさんようこそ';
-    }
-    ?>
+    <?php include_once __DIR__ . '../../components/header.php'; ?>
 
     <ul class="recipe-items">
         <?php foreach ($recipes as $recipe): ?>

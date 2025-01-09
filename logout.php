@@ -9,5 +9,5 @@ session_unset();
 session_destroy();
 
 // ログインページにリダイレクト
-header('Location: login.php');
+header('Location: index.php');
 exit();
