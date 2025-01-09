@@ -33,7 +33,7 @@ include_once __DIR__ . '../../components/head.php';
         <?php endforeach; ?>
     </ul>
 
-    <p><a href="post_recipe.php">レシピを投稿</a></p>
+    <p><a href="post_recipe.php" class="move-btn">レシピを投稿</a></p>
 </body>
 
 </html>
