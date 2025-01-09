@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-<head>
-    <meta charset="UTF-8">
-    <title>レシピ投稿</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<?php
+$pageTitle = 'レシピ投稿';
+include_once __DIR__ . '../../components/head.php'; ?>
 
 <body>
-    <h1>レシピ投稿</h1>
+    <?php include_once __DIR__ . '../../components/header.php'; ?>
+    <h2><?= $pageTitle  ?></h2>
     <form method="post" enctype="multipart/form-data">
         <label>タイトル: <input type="text" name="title" required></label><br>
         <label>材料: <textarea name="ingredients" required></textarea></label><br>
@@ -17,7 +16,7 @@
         <input type="submit" value="投稿">
     </form>
 
-    <p><a href="index.php">レシピ一覧に戻る</a></p>
+    <p><a href="index.php" class="move-btn">レシピ一覧に戻る</a></p>
 
 </body>
 

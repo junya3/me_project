@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-<head>
-    <meta charset="UTF-8">
-    <title>ユーザー登録</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<?php
+$pageTitle = 'ユーザー登録';
+include_once __DIR__ . '../../components/head.php'; ?>
 
 <body>
-    <h1>ユーザー登録</h1>
+    <?php include_once __DIR__ . '../../components/header.php'; ?>
+    <h2><?= $pageTitle  ?></h2>
     <form method="post">
         <label>ユーザー名: <input type="text" name="username" required></label><br>
         <label>パスワード: <input type="password" name="password" required></label><br>
         <label>メールアドレス: <input type="email" name="email" required></label><br>
         <input type="submit" value="登録">
     </form>
-    <p><a href="login.php">ログイン</a></p>
+    <p><a href="login.php" class="move-btn">ログインページへ</a></p>
 </body>
 
 </html>
