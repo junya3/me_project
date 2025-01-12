@@ -1,5 +1,8 @@
 @charset "utf-8";
 
+html{
+  line-height: 1.5;
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -9,6 +12,19 @@ body {
 main{
   display: grid;
   gap:4rem;
+}
+article{
+  width:min(100%, 600px);
+  margin-inline:auto;
+  display: grid;
+  gap: 1rem;
+  h2{
+    margin-bottom: 0;
+  }
+  form{
+    display: grid;
+    gap:.5rem;
+  }
 }
 
 h1 {
@@ -20,10 +36,9 @@ h2{
   margin-bottom: 1rem;
 }
 
-p {
-  margin: 10px 0;
+p{
+  line-height: 1.5;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -32,9 +47,17 @@ ul {
 a{
   color: #000;
   text-decoration: none;
+  line-height: 1.5;
   &:hover{
     color: color-mix(in srgb, #000 50%, transparent);
   }
+}
+
+img{
+  width: 100%;
+  border-radius: .5rem;
+  aspect-ratio: 4/3;
+  object-fit: cover;
 }
 
 form {
@@ -108,9 +131,9 @@ input[type='text'],
 input[type='password'],
 input[type='email'],
 textarea {
-  width: 100%;
+  width: calc(100% - 20px);
   padding: 10px;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   border: 1px solid #ccc;
 }
 
@@ -154,4 +177,17 @@ input[type='submit']:hover {
   h3{
     font-weight: bold;
   }
+}
+
+/* btns */
+.btns{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* edit */
+
+.edit-image{
+  display: grid;
+  gap:.5rem;
 }
