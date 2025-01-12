@@ -1,7 +1,14 @@
+@charset "utf-8";
+
+
 body {
   font-family: Arial, sans-serif;
   padding-inline: 20px;
   padding-bottom: 80px;
+}
+main{
+  display: grid;
+  gap:4rem;
 }
 
 h1 {
@@ -121,11 +128,13 @@ input[type='submit']:hover {
 
 .recipe-items{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap:1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap:2rem 1rem ;
 }
 .recipe-item{
   width: 100%;
+  display: grid;
+  gap:.5rem;
   img{
     width: 100%;
     object-fit: cover;
@@ -142,9 +151,7 @@ input[type='submit']:hover {
 
     border-radius:.5rem;
   }
-  li {
-    margin: 20px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
+  h3{
+    font-weight: bold;
   }
 }

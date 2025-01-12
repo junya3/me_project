@@ -9,7 +9,7 @@ include_once __DIR__ . '../../components/head.php'; ?>
     <?php include_once __DIR__ . '../../components/header.php'; ?>
     <h2><?= htmlspecialchars($recipe['title']) ?></h2>
     <p>材料: <?= nl2br(htmlspecialchars($recipe['ingredients'])) ?></p>
-    <p>手順: <?= nl2br(htmlspecialchars($recipe['instructions'])) ?></p>
+    <p>手順:<br> <?= nl2br(htmlspecialchars($recipe['instructions'])) ?></p>
 
     <?php if ($recipe['image']): ?>
         <img src="uploads/<?= htmlspecialchars($recipe['image']) ?>" alt="Recipe Image" width="300">

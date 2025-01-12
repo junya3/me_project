@@ -20,12 +20,14 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
         </div>
         <ul>
             <?php if ($userId): ?>
+                <li style="background:#333;"><a href="post_recipe.php" style="color:#fff;">レシピを投稿</a></li>
                 <li><a href="logout.php">ログアウト</a></li>
             <?php else: ?>
                 <!-- ログインしていない場合はログインページへのリンクを表示 -->
                 <li><a href="login.php">ログイン</a></li>
                 <li><a href="register.php">ユーザー登録</a></li>
             <?php endif; ?>
+
         </ul>
     </nav>
 </header>
