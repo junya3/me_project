@@ -130,6 +130,7 @@ input[type='submit']:hover {
     width: 100%;
     object-fit: cover;
     aspect-ratio: 4/3;
+    border-radius:.5rem;
   }
   .no-image{
     background-image: url(../images/no_photography.png);
@@ -138,6 +139,8 @@ input[type='submit']:hover {
     background-position:center;
     background-repeat: no-repeat;
     background-color: #efefef;
+
+    border-radius:.5rem;
   }
   li {
     margin: 20px 0;

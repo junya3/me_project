@@ -26,8 +26,6 @@ include_once __DIR__ . '../../components/head.php';
                         <div class="no-image"></div>
                     <?php endif; ?>
                     <h3><?= htmlspecialchars($recipe['title']) ?></h3>
-                    <p><?= htmlspecialchars($recipe['ingredients']) ?></p>
-                    <p><?= htmlspecialchars($recipe['instructions']) ?></p>
                 </a>
             </li>
         <?php endforeach; ?>
