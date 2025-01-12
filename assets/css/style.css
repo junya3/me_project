@@ -115,10 +115,11 @@ header{
 
 /* move-btn */
 .move-btn{
-  background-color: #4caf50;
-  color: white;
+  display: block;
+  text-align: center;
+  color: #4caf50;
   padding: 10px 15px;
-  border: none;
+  border: 1px solid;
   cursor: pointer;
   font-size: 14px;
   &:hover{

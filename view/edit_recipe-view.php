@@ -22,8 +22,6 @@ include_once __DIR__ . '../../components/head.php'; ?>
                 <label>タイトル: <input type="text" name="title" value="<?= htmlspecialchars($recipe['title']) ?>" required></label><br>
                 <label>材料: <textarea name="ingredients" required><?= htmlspecialchars($recipe['ingredients']) ?></textarea></label><br>
                 <label>手順: <textarea name="instructions" required><?= htmlspecialchars($recipe['instructions']) ?></textarea></label><br>
-
-
                 <input type="submit" value="更新">
             </form>
             <p><a href="index.php" class="move-btn">レシピ一覧に戻る</a></p>
