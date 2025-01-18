@@ -14,7 +14,7 @@ main{
   gap:4rem;
 }
 article{
-  width:min(100%, 600px);
+  width:min(100%, 500px);
   margin-inline:auto;
   display: grid;
   gap: 1rem;
